@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<title>Loading</title>
+
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/gif"/> 
+    <link href="css/card.css" rel="stylesheet">
+    <link href="css/runningman.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+    /* CSS設定 */
+    </style>
+
+    <!-- 引入 jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var r = 0;         
+        jQuery(document).ready(function () {//網頁載入時執行
+            $(".runblock").hide();
+            setTimeout(DisplayCard, 1000, r);
+        });
+
+        function DisplayCard(r) {
+            var Loading = "Loading";
+            if (r == Loading.length) {
+                Running();
+                return;
+            }
+            // $("#LoadBlock").html("");
+            //取得物件
+            var loadblock = document.getElementById("CardBlock");
+            var card = document.getElementById("CD");
+            var cardText = document.getElementById("CD-Text");
+            //物件初始化
+            cardText.textContent = Loading[r];
+            //生成物件
+            var cardClone = card.cloneNode(true);
+            loadblock.appendChild(cardClone);
+            //function 遞迴
+            r++; setTimeout(DisplayCard, 800, r);
+            // console.log($("#CD-Text").text() == "i");
+        };
+
+        var i = 0;
+        function Running(){
+            $(".runblock").show();
+            $(".runblock").animate({
+                opacity: 1,
+            },300)
+            $(".running").animate({
+                width:"100%"
+            },3030);
+            Run(i);
+        };
+        function Run(i){
+            if(i == 101){
+                LoadBlockHide();
+                return;
+            }
+            $(".run-text").text(i);
+            i++; setTimeout(Run, 30, i);
+        };
+
+        function LoadBlockHide(){
+            $("#LoadBlock").animate({
+                opacity: 0,
+            },2000);
+            $(".back").animate({
+                opacity:0.05,
+            },2000);
+            setTimeout(Hello,2000);
+        };
+
+        var EndIndex = 0;
+        function Hello(){
+            var HelloString = "Hello!";
+            $("#Hello").text(HelloString.substring(0,EndIndex));
+            EndIndex++;
+            if(EndIndex > 6){
+                return;
+            }
+            setTimeout(Hello,200);
+        };
+
+        document.addEventListener("click", onclickHello);
+
+        function onclickHello(){
+            if(EndIndex>6){
+                $("#Hello").animate({
+                    opacity:0,
+                },2000);
+            };
+
+        }
+
+    </script>
+
+    <!-- 匯入Google Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="back"></div>
+    <div id="Hello"></div>
+    <!-- 卡片模板 -->
+    <div style="display: none;">
+        <div id="CD" style="perspective: 45rem; ">
+            <div class="card card-animation">
+                <img class="card-set" src="https://i2.kknews.cc/57qe7p528ZIrRltVV7CCpimVNQ6wCApcblSumpHJAqs/0.jpg">
+                <div class="card-back"></div>
+                <div id="CD-Text" class="card-set text">0</div>
+            </div>
+        </div>
+    </div>
+    <!-- LoadingBlock -->
+    <div id="LoadBlock">
+        <div id="CardBlock">
+            <!--卡片插入區塊-->
+        </div>
+        <div class="runblock">
+            <div class="running"></div>
+            <div class="run-text"></div>
+        </div>
+    </div>
+</body>
+
+</html>

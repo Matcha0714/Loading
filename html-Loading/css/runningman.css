@@ -1,0 +1,35 @@
+.runblock{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 50px;
+    width: 51rem;
+    height: 50px;
+    background: -webkit-linear-gradient(left top,snow,rgb(153, 153, 153));
+    background: -o-linear-gradient(bottom right,snow,rgb(153, 153, 153));
+    background: -moz-linear-gradient(bottom right,snow,rgb(153, 153, 153));
+    background: linear-gradient(to bottom right,snow,rgb(153, 153, 153));
+    border: solid rgba(0, 0, 0, 0.719) 1px;
+    border-radius: 50px;
+    margin: auto;
+}
+
+.running{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: -webkit-linear-gradient(left top,rgb(77, 78, 148),rgb(9, 14, 83));
+    background: -o-linear-gradient(bottom right,rgb(77, 78, 148),rgb(9, 14, 83));
+    background: -moz-linear-gradient(bottom right,rgb(77, 78, 148),rgb(9, 14, 83));
+    background: linear-gradient(to bottom right,rgb(77, 78, 148),rgb(9, 14, 83));
+}
+
+.run-text{
+    z-index: 1;
+    text-shadow: black 2px 2px 2px;
+    margin:auto;
+    line-height: 50px;
+    font-size: 30px;
+    color: snow;
+}

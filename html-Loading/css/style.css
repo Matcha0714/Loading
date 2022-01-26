@@ -1,0 +1,30 @@
+div, h1{
+    cursor: context-menu;
+}
+
+body{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/968/251/652/taxi-rain-street-bokeh-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: 0px 0px;
+    padding: 0px;
+    margin: 0px;
+}
+.back{
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    opacity: 0.5;
+    position: fixed;
+    top:0px;
+}
+
+#Hello{
+    width: 100%;
+    color: snow;
+    position: absolute;
+    font-size: 140px;
+    text-shadow: black 5px 5px 5px;
+    text-align: center;
+    text-decoration: none;
+}
